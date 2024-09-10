@@ -1,0 +1,33 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>
+            Operator Precedence Parser
+		</title>
+
+		<link
+				rel="stylesheet"
+				type="text/css"
+				href="{{ url_for('static',filename='styles.css') }}"
+		/>
+	</head>
+	<body>
+		<div class="site_name">
+			<h1>
+                Operator Precedence Parser
+            </h1>
+		</div>
+
+		<h1>
+			{{ message }}
+		</h1>
+		<main>
+			{% block content %}
+			{% endblock content %}
+		</main>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!-- templates/data_input.html -->
+
+{% extends "base.html" %}
+
+{% block title %}
+  - Parser Input
+{% endblock title %}
+
+{% block content %}
+
+<form>
+    <label for="num_production_rules">Number of Production Rules:</label><br>
+    <input type="text" id="num_production_rules" name="num_production_rules" value="{{ npr }}"><br><br>
+    
+    <label for="production_rules">Production Rules:</label><br>
+    <textarea id="production_rules" name="production_rules" rows="4" cols="50">{{ pr }}</textarea><br><br>
+    
+    <label for="operators">Operators:</label><br>
+    <input type="text" id="operators" name="operators" value="{{ op }}"><br><br>
+    
+    <label for="input_string">Input String:</label><br>
+    <input type="text" id="input_string" name="input_string" value="{{ input_string }}"><br><br>
+
+    <button formmethod="post" formaction={{url_for('save_input')}}>
+        Save Input
+    </button>
+    
+    <button formmethod="post" formaction={{url_for('reset_session')}}>
+        Reset
+    </button> 
+
+    <button formmethod="post" formaction={{url_for('call_parse')}}>
+        Parse String
+    </button>
+</form>
+{% endblock content %}
+

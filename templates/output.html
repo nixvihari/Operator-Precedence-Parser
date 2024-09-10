@@ -1,0 +1,65 @@
+<!-- templates/base.html -->
+
+{% extends "base.html" %}
+
+{% block title %}
+  - Parser Output
+{% endblock title %}
+
+{% block content %}
+
+<div name="Parse Table Output" style="align-items: center;">
+    <h2>
+        Operator Precedence Parse Relational Table
+    </h2>
+</div>
+
+    <!-- <button formmethod="post" formaction="javascript:document.body.innerHTML = '';">
+        Clear Output Screen
+    </button> -->
+    
+    {% if ss == 0 %}
+        Output : <br><br>
+    Invalid Input Grammar! 
+    {% elif ss == 1%}
+        Output : <br><br>
+        Grammer Accepted!<br>String NOT Accepted
+    {% elif ss == 2 %}
+        <br><br>
+    <table class="table__component">
+        <tr class="table__header">
+            {% for cell in pt[0]%}
+                    <th class="table__cell"> {{ cell }} </th>
+            {% endfor %}
+        </tr>
+            {% for row in pt[1:]%}
+        <tr class="table__rowset">
+                {% for cell in row %}
+                    <th class="table__cell"> {{ cell }} </th>
+                {% endfor %}
+        </tr>
+            {% endfor %}
+    </table>
+
+    <br><br>Steps in Precedence Parsing:<br><br>
+    {% for step in ptr[:-1] %}
+        {% for value in step[0] %}
+        {% if value != None %}
+            {{value}},
+        {% endif %}
+        {% endfor %}
+        ({{step[1]}}) <br>
+    {% endfor %}
+        $,&nbsp;$
+
+        <br><br>
+        Output : <br><br>Success!<br><br>Grammar Accepted!<br><br>String Accepted!<br><br>
+    {% endif %}
+
+    
+
+    <!-- <button formmethod="post" formaction="javascript:document.body.innerHTML = '';">
+        Clear Output Screen
+    </button> -->
+{% endblock content %}
+
